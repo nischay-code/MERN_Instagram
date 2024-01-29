@@ -23,6 +23,8 @@ require("./models/user");
 //   res.send("About");
 // });
 
+app.use(express.json())
+app.use(require("./routes/auth"));
 mongoose.connect(MONGOURI);
 
 mongoose.connection.on("connected", () => {
