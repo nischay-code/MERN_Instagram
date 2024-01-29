@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const app = express();
 const { MONGOURI } = require("./keys");
 const PORT = 5000;
+require("./models/user");
+
+// NOTE : The Skeleton of the database is created by the attributes and this skeleton is named Schema or a Blueprint.
 
 // const customMiddleware = (req, res, next) => {
 //   console.log("Middleware Executed!");
