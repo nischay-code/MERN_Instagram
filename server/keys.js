@@ -1,5 +1,5 @@
+require("dotenv").config();
 module.exports = {
-  MONGOURI:
-    "mongodb+srv://nischaypatelcode:@cluster0.olmfciy.mongodb.net/?retryWrites=true&w=majority",
+  MONGOURI: process.env.MONGO_URL,
   JWT_SECRET: "Bunny",
 };

@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const { MONGOURI } = require("./keys");
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // NOTE : The Skeleton of the database is created by the attributes and this skeleton is named Schema or a Blueprint.
 
