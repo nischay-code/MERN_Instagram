@@ -14,7 +14,6 @@ const Profile = () => {
             display: "flex",
             justifyContent: "space-around",
           }}
-          z
         >
           <div>
             <img
@@ -43,16 +42,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="file-field input-field" style={{ margin: "10px" }}>
-            <div className="btn #64b5f6 blue darken-1">
-              <span>Update pic</span>
-              <input type="file" />
-            </div>
-            <div className="file-path-wrapper">
-              <input className="file-path validate" type="text" />
-            </div>
-          </div> */}
       </div>
       <div className="gallery">
         <img
