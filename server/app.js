@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const app = express();
 const { MONGOURI } = require("./keys");
 const PORT = 5000;
-require("./models/user");
 
 // NOTE : The Skeleton of the database is created by the attributes and this skeleton is named Schema or a Blueprint.
 
@@ -23,8 +22,6 @@ require("./models/user");
 //   res.send("About");
 // });
 
-app.use(express.json())
-app.use(require("./routes/auth"));
 mongoose.connect(MONGOURI);
 
 mongoose.connection.on("connected", () => {
@@ -33,6 +30,12 @@ mongoose.connection.on("connected", () => {
 mongoose.connection.on("error", (err) => {
   console.log("Error : ", err);
 });
+
+require("./models/user");
+require("./models/post");
+app.use(express.json());
+app.use(require("./routes/auth"));
+app.use(require("./routes/post"));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

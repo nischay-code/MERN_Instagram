@@ -7,9 +7,13 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../keys");
 const requireLogin = require("../middleware/requireLogin");
 
+// Route 1
+
 router.get("/protected", requireLogin, (req, res) => {
   res.send("Hello User");
 });
+
+// Route 2
 
 router.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
@@ -41,6 +45,8 @@ router.post("/signup", (req, res) => {
       console.log(err);
     });
 });
+
+// Route 3
 
 router.post("/signin", (req, res) => {
   const { email, password } = req.body;
