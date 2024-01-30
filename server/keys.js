@@ -1,3 +1,5 @@
-module.exports={
-    MONGOURI:"mongodb+srv://nischaypatelcode:@cluster0.olmfciy.mongodb.net/?retryWrites=true&w=majority"
-}
+module.exports = {
+  MONGOURI:
+    "mongodb+srv://nischaypatelcode:@cluster0.olmfciy.mongodb.net/?retryWrites=true&w=majority",
+  JWT_SECRET: "Bunny",
+};
