@@ -1,5 +1,6 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { createContext, useReducer, useEffect, useContext } from "react";
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Home from "./components/screens/Home";
@@ -7,10 +8,23 @@ import Login from "./components/screens/Login";
 import Signup from "./components/screens/Signup";
 import Profile from "./components/screens/Profile";
 import CreatePost from "./components/screens/CreatePost";
-function App() {
+import { reducer, initialState } from "./reducers/userReducer";
+
+export const UserContext = createContext();
+
+const Routing = () => {
+  const history = useHistory();
+  const { dispatch } = useContext(UserContext);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      dispatch({ type: "USER", payload: user });
+    } else {
+      history.push("/login");
+    }
+  }, []);
   return (
-    <Router>
-      <Navbar />
+    <>
       <Route exact path="/">
         <Home />
       </Route>
@@ -26,7 +40,19 @@ function App() {
       <Route exact path="/createpost">
         <CreatePost />
       </Route>
-    </Router>
+    </>
+  );
+};
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <UserContext.Provider value={{ state, dispatch }}>
+      <Router>
+        <Navbar />
+        <Routing />
+      </Router>
+    </UserContext.Provider>
   );
 }
 
