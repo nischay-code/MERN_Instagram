@@ -1,6 +1,7 @@
+/* eslint-disable no-useless-escape */
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Toast, { toast } from "materialize-css";
+import Toast from "materialize-css";
 const Signup = () => {
   const [name, setName] = useState("");
   const [password, setPasword] = useState("");
@@ -43,6 +44,7 @@ const Signup = () => {
         console.log(err);
       });
   };
+  
   return (
     <div>
       <div className="mycard">
