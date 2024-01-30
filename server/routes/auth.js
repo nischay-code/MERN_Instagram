@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { JWT_SECRET } = require("../keys");
 
 router.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
@@ -48,7 +50,9 @@ router.post("/signin", (req, res) => {
       .compare(password, savedUser.password)
       .then((doMatch) => {
         if (doMatch) {
-          return res.status(200).json({ message: "Successfully Login" });
+          // return res.status(200).json({ message: "Successfully Login" });
+          const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
+          return res.json({ token });
         } else {
           return res.status(422).json({ error: "Invalid Credentials!" });
         }
