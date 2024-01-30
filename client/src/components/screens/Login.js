@@ -33,6 +33,8 @@ const Login = () => {
         if (data.error) {
           Toast.toast({ html: data.error, classes: "#c62828 red darken-3" });
         } else {
+          localStorage.setItem("jwt", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user));
           Toast.toast({
             html: "Login Successfully",
             classes: "#43a047 green darken-1",
