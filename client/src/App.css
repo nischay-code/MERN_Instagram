@@ -24,7 +24,8 @@ h2 {
 .auth-card h6 b {
     color: #1877f2;
 }
-.auth-card p{
+
+.auth-card p {
     color: #09428b;
 }
 
@@ -46,6 +47,7 @@ h2 {
 
 .item {
     width: 30%;
+    margin: 5px;
 }
 
 .home-card {
