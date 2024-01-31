@@ -6,7 +6,7 @@ const Post = mongoose.model("Post");
 
 // Route 1
 
-router.get("/allpost", (req, res) => {
+router.get("/allpost", requireLogin, (req, res) => {
   Post.find()
     .populate("postedBy", "_id name")
     .then((posts) => {

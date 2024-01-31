@@ -7,19 +7,19 @@ const Navbar = () => {
   const renderList = () => {
     if (state) {
       return [
-        <li>
+        <li key="1">
           <Link to="/profile">Profile</Link>
         </li>,
-        <li>
+        <li key="2">
           <Link to="/createpost">Create Post</Link>
         </li>,
       ];
     } else {
       return [
-        <li>
+        <li key="3">
           <Link to="/login">Login</Link>
         </li>,
-        <li>
+        <li key="4">
           <Link to="/signup">Signup</Link>
         </li>,
       ];
