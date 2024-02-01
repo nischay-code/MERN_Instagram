@@ -10,6 +10,7 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         setData(result.posts);
       });
   }, []);
@@ -27,7 +28,9 @@ const Home = () => {
                 <i className="material-icons" style={{ color: "red" }}>
                   favorite
                 </i>
-                <h6>5 likes</h6>
+                <i className="material-icons">thumb_up</i>
+                <i className="material-icons">thumb_down</i>
+                <h6>{item.likes.length} likes</h6>
                 <h6>{item.title}</h6>
                 <p>{item.body}</p>
 
