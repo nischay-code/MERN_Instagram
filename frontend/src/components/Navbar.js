@@ -71,10 +71,14 @@ export default function Navbar({ login }) {
     } else {
       return [
         <li key="signup">
-          <Link to="/signup">SignUp</Link>
+          <Link to="/signup">
+            <span className="material-symbols-outlined">person_add</span>
+          </Link>
         </li>,
         <li key="signin">
-          <Link to="/signin">SignIn</Link>
+          <Link to="/signin">
+            <span className="material-symbols-outlined">login</span>
+          </Link>
         </li>,
       ];
     }

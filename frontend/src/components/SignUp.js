@@ -117,8 +117,8 @@ export default function SignUp() {
             className="loginPara"
             style={{ fontSize: "12px", margin: "3px 0px" }}
           >
-            By signing up, you agree to out Terms, <br /> privacy policy and
-            cookies policy.
+            By signing up, you agree to out terms, <br />
+            privacy policy and cookies policy.
           </p>
           <input
             type="submit"
@@ -130,9 +130,13 @@ export default function SignUp() {
           />
         </div>
         <div className="form2">
-          Already have an account ?
+          Already have an account?{" "}
           <Link to="/signin">
-            <span style={{ color: "blue", cursor: "pointer" }}>Sign In</span>
+            <span
+              style={{ color: "#1773EA", cursor: "pointer", fontWeight: "600" }}
+            >
+              Sign In
+            </span>
           </Link>
         </div>
       </div>

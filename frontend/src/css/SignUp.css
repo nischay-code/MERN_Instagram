@@ -1,4 +1,4 @@
-.signUp{
+.signUp {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB1lN1hGZAj0MpZ1ZoN7tt7q38JyzTvjmSMQ&usqp=CAU");
     background-size: cover;
     flex: 1;
@@ -7,28 +7,21 @@
     align-items: center;
 }
 
-.form{
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid rgb(129, 121, 121);
-    border-radius: 1px;
-    
-}
-.signUpLogo{
+.signUpLogo {
     width: 200px;
     object-fit: contain;
     padding: 10px 0px;
 }
 
-.loginPara{
-    color: rgba(var(--f52,142,142,142),1);
+.loginPara {
+    color: black;
     font-size: 17px;
     font-weight: 600;
     line-height: 20px;
     margin: 0px 40px 20px 40px;
 }
 
-input{
+input {
     padding: 5px;
     margin: 3px 0px;
     outline: none;
@@ -37,12 +30,28 @@ input{
     box-sizing: border-box;
 }
 
-.form > div{
+.form>div {
     width: 80%;
     margin: auto;
 }
 
-#submit-btn{
+.form {
+    background-color: #ffffff4d;
+    padding: 30px;
+    border: 1px solid rgb(129, 121, 121);
+    border-radius: 1px;
+}
+
+
+.form2 {
+    background-color: #ffffff4d;
+    padding: 20px;
+    margin-top: 5px;
+    border: 1px solid rgb(129, 121, 121);
+    border-radius: 1px;
+}
+
+#submit-btn {
     background-color: #1773EA;
     border: none;
     border-radius: 3px;
@@ -53,11 +62,3 @@ input{
     cursor: pointer;
     margin-top: 8px;
 }
-
-.form2{
-    background-color: #fff;
-    padding: 30px;
-    margin-top: 5px;
-    border: 1px solid rgb(129, 121, 121);
-    border-radius: 1px;
-    }

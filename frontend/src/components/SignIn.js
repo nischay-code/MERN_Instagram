@@ -54,7 +54,7 @@ export default function SignIn() {
 
   return (
     <div className="signIn">
-      <div>
+      <div className="form-container">
         <div className="loginForm">
           <img className="signUpLogo" src={logo} alt="" />
           <div>
@@ -91,9 +91,13 @@ export default function SignIn() {
           />
         </div>
         <div className="loginForm2">
-          Don't have an account ?
+          Don't have an account?{" "}
           <Link to="/signup">
-            <span style={{ color: "blue", cursor: "pointer" }}>Sign Up</span>
+            <span
+              style={{ color: "#1773EA", cursor: "pointer", fontWeight: "600" }}
+            >
+              Sign Up
+            </span>
           </Link>
         </div>
       </div>
