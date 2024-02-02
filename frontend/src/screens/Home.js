@@ -1,10 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import "./Home.css";
+import "../css/Home.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-export default function MyFolliwngPost() {
+export default function Home() {
+  var picLink =
+    "https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png";
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [comment, setComment] = useState("");
@@ -22,7 +26,7 @@ export default function MyFolliwngPost() {
     }
 
     // Fetching all posts
-    fetch("http://localhost:5000/myfollwingpost", {
+    fetch("http://localhost:5000/allposts", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -92,7 +96,6 @@ export default function MyFolliwngPost() {
       });
   };
 
-  // function to make comment
   const makeComment = (text, id) => {
     fetch("http://localhost:5000/comment", {
       method: "put",
@@ -122,7 +125,6 @@ export default function MyFolliwngPost() {
 
   return (
     <div className="home">
-      <h2>My Following</h2>
       {/* card */}
       {data.map((posts) => {
         return (
@@ -131,7 +133,7 @@ export default function MyFolliwngPost() {
             <div className="card-header">
               <div className="card-pic">
                 <img
-                  src="https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png"
+                  src={posts.postedBy.Photo ? posts.postedBy.Photo : picLink}
                   alt=""
                 />
               </div>

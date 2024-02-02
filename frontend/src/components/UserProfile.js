@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-
-import "./Profile.css";
+import "../css/Profile.css";
 import { useParams } from "react-router-dom";
 
 export default function UserProfie() {

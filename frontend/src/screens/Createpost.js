@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import "./Createpost.css";
+import "../css/Createpost.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -63,6 +63,7 @@ export default function Createpost() {
       URL.revokeObjectURL(output.src); // free memory
     };
   };
+  
   return (
     <div className="createPost">
       {/* //header */}

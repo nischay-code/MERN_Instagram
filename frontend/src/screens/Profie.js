@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import PostDetail from "./PostDetail";
-import "./Profile.css";
-import ProfilePic from "./ProfilePic";
+import PostDetail from "../components/PostDetail";
+import "../css/Profile.css";
+import ProfilePic from "../components/ProfilePic";
 
 export default function Profie() {
   var picLink =
