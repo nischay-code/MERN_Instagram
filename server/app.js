@@ -5,16 +5,23 @@ const app = express();
 const cors = require("cors");
 const { MONGOURI } = require("./keys");
 const PORT = process.env.PORT || 5000;
+
 app.use(cors());
+
 mongoose.connect(MONGOURI);
+
 mongoose.connection.on("connected", () => {
   console.log("Connected to MongoDB");
 });
+
 mongoose.connection.on("error", (err) => {
   console.log("Error : ", err);
 });
+
 require("./models/user");
 require("./models/post");
+require("./models/user");
+
 app.use(cors());
 app.use(express.json());
 app.use(require("./routes/auth"));
