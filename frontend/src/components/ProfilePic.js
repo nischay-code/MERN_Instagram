@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from "react";
 
 export default function ProfilePic({ changeprofile }) {
@@ -80,8 +81,14 @@ export default function ProfilePic({ changeprofile }) {
           />
         </div>
         <div style={{ borderTop: "1px solid #00000030" }}>
-          <button className="upload-btn" style={{ color: "#ED4956" }}>
-            {" "}
+          <button
+            className="upload-btn"
+            style={{ color: "#ED4956" }}
+            onClick={() => {
+              setUrl(null);
+              postPic();
+            }}
+          >
             Remove Current Photo
           </button>
         </div>
