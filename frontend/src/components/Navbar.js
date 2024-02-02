@@ -39,16 +39,61 @@ export default function Navbar({ login }) {
     }
   };
 
+  const loginStatusMobile = () => {
+    const token = localStorage.getItem("jwt");
+    if (login || token) {
+      return [
+        <li key="home">
+          <Link to="/">
+            <span className="material-symbols-outlined">home</span>
+          </Link>
+        </li>,
+        <li key="profile">
+          <Link to="/profile">
+            <span className="material-symbols-outlined">account_circle</span>
+          </Link>
+        </li>,
+        <li key="createPost">
+          <Link to="/createPost">
+            <span className="material-symbols-outlined">add_box</span>
+          </Link>
+        </li>,
+        <li key="following" style={{ marginLeft: "20px" }}>
+          <Link to="/followingpost">
+            <span className="material-symbols-outlined">explore</span>
+          </Link>
+        </li>,
+
+        <li key="logout" onClick={() => setModalOpen(true)}>
+          <span className="material-symbols-outlined">logout</span>
+        </li>,
+      ];
+    } else {
+      return [
+        <li key="signup">
+          <Link to="/signup">SignUp</Link>
+        </li>,
+        <li key="signin">
+          <Link to="/signin">SignIn</Link>
+        </li>,
+      ];
+    }
+  };
+
   return (
     <div className="navbar">
       <img
+        id="insta-logo"
         src={logo}
         alt=""
         onClick={() => {
           navigate("/");
         }}
       />
-      <ul className="nav-menu">{loginStatus()}</ul>
+      <>
+        <ul className="nav-menu">{loginStatus()}</ul>
+        <ul className="nav-mobile">{loginStatusMobile()}</ul>
+      </>
     </div>
   );
 }
