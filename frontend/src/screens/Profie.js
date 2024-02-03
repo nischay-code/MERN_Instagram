@@ -44,7 +44,6 @@ export default function Profie() {
       .then((result) => {
         setPic(result.post);
         setUser(result.user);
-        
       });
   }, []);
 
