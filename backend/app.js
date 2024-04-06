@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const { mongoUrl } = require("./keys");
 const cors = require("cors");
+const path = require('path'); 
 
 app.use(cors());
 require("./models/model");
@@ -21,6 +22,15 @@ mongoose.connection.on("connected", () => {
 
 mongoose.connection.on("error", () => {
   console.log("Not connected to MongoDB");
+});
+
+app.use(express.static(path.join(__dirname, "./frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./frontend/build/index.html")),
+    function (err) {
+      res.status(500).send(err);
+    };
 });
 
 app.listen(port, () => {

@@ -1,16 +1,16 @@
 /* eslint-disable no-useless-escape */
-import React, { useState } from "react";
+
+import React, { useState, useContext } from "react";
+import "../css/SignIn.css";
 import logo from "../img/logo.png";
-import "../css/SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
-
 import { toast } from "react-toastify";
+import { LoginContext } from "../context/LoginContext";
 
-export default function SignUp() {
+export default function SignIn() {
+  const { setUserLogin } = useContext(LoginContext);
   const navigate = useNavigate();
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   // Toast functions
@@ -18,30 +18,20 @@ export default function SignUp() {
   const notifyB = (msg) => toast.success(msg);
 
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  const passRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
   const postData = () => {
     //checking email
     if (!emailRegex.test(email)) {
       notifyA("Invalid email");
       return;
-    } else if (!passRegex.test(password)) {
-      notifyA(
-        "Password must contain at least 8 characters, including at least 1 number and 1 includes both lower and uppercase letters and special characters for example #,?,!"
-      );
-      return;
     }
-
     // Sending data to server
-    fetch("http://localhost:5000/signup", {
+    fetch("/signin", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
-        userName: userName,
         email: email,
         password: password,
       }),
@@ -51,20 +41,22 @@ export default function SignUp() {
         if (data.error) {
           notifyA(data.error);
         } else {
-          notifyB(data.message);
-          navigate("/signin");
+          notifyB("Signed In Successfully");
+
+          localStorage.setItem("jwt", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user));
+
+          setUserLogin(true);
+          navigate("/");
         }
       });
   };
 
   return (
-    <div className="signUp">
+    <div className="signIn">
       <div className="form-container">
-        <div className="form">
+        <div className="loginForm">
           <img className="signUpLogo" src={logo} alt="" />
-          <p className="loginPara">
-            Sign up to see photos and videos <br /> from your friends
-          </p>
           <div>
             <input
               type="email"
@@ -74,30 +66,6 @@ export default function SignUp() {
               placeholder="Email"
               onChange={(e) => {
                 setEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Full Name"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-              value={userName}
-              onChange={(e) => {
-                setUserName(e.target.value);
               }}
             />
           </div>
@@ -113,29 +81,22 @@ export default function SignUp() {
               }}
             />
           </div>
-          <p
-            className="loginPara"
-            style={{ fontSize: "12px", margin: "3px 0px" }}
-          >
-            By signing up, you agree to out terms, <br />
-            privacy policy and cookies policy.
-          </p>
           <input
             type="submit"
-            id="submit-btn"
-            value="Sign Up"
+            id="login-btn"
             onClick={() => {
               postData();
             }}
+            value="Sign In"
           />
         </div>
-        <div className="form2">
-          Already have an account?{" "}
-          <Link to="/signin">
+        <div className="loginForm2">
+          Don't have an account?{" "}
+          <Link to="/signup">
             <span
               style={{ color: "#1773EA", cursor: "pointer", fontWeight: "600" }}
             >
-              Sign In
+              Sign Up
             </span>
           </Link>
         </div>
