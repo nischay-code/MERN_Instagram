@@ -4,7 +4,7 @@ import "../css/Profile.css";
 import { useParams } from "react-router-dom";
 
 export default function UserProfie() {
-  var picLink = "https://cdn-icons-png.flaticon.com/128/3177/3177440.png";
+  var picLink = "https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png";
   const { userid } = useParams();
   const [isFollow, setIsFollow] = useState(false);
   const [user, setUser] = useState("");
@@ -74,10 +74,10 @@ export default function UserProfie() {
       <div className="profile-frame">
         {/* profile-pic */}
         <div className="profile-pic">
-          <img src={user.Photo ? user.Photo : picLink} alt="" />
+          <img src={user.photo ? user.photo : picLink} alt="" />
         </div>
         {/* profile-data */}
-        <div className="pofile-data">
+        <div className="profile-data">
           <div
             style={{
               display: "flex",

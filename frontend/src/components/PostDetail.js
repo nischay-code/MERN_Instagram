@@ -41,7 +41,7 @@ export default function PostDetail({ item, toggleDetails }) {
           >
             <div className="card-pic">
               <img
-                src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png"
+                src="https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png"
                 alt=""
               />
             </div>

@@ -223,7 +223,7 @@ export default function Home() {
               >
                 <div className="card-pic">
                   <img
-                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    src="https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png"
                     alt=""
                   />
                 </div>
@@ -237,7 +237,7 @@ export default function Home() {
               >
                 {item.comments.map((comment) => {
                   return (
-                    <p className="comm">
+                    <p className="comm" key={comment._id}>
                       <span
                         className="commenter"
                         style={{ fontWeight: "bolder" }}
@@ -253,7 +253,7 @@ export default function Home() {
               {/* card content */}
               <div className="card-content">
                 <p>{item.likes.length} Likes</p>
-                <p>{item.body}</p>
+                <p className="para">{item.body}</p>
               </div>
 
               {/* add Comment */}
