@@ -237,7 +237,7 @@ export default function Home() {
               >
                 {item.comments.map((comment) => {
                   return (
-                    <p className="comm" key={comment._id}>
+                    <p className="comm">
                       <span
                         className="commenter"
                         style={{ fontWeight: "bolder" }}
