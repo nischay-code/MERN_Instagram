@@ -125,6 +125,7 @@ export default function Home() {
 
   return (
     <div className="home">
+      <h1 className="insta">Instagram</h1>
       {/* card */}
       {data.map((posts) => {
         return (
@@ -173,7 +174,7 @@ export default function Home() {
               )}
 
               <p>{posts.likes.length} Likes</p>
-              <p>{posts.body} </p>
+              <p className="cardBody">{posts.body} </p>
               <p
                 style={{ fontWeight: "bold", cursor: "pointer" }}
                 onClick={() => {
@@ -253,7 +254,7 @@ export default function Home() {
               {/* card content */}
               <div className="card-content">
                 <p>{item.likes.length} Likes</p>
-                <p className="para">{item.body}</p>
+                <p className="cardBody">{item.body}</p>
               </div>
 
               {/* add Comment */}

@@ -63,7 +63,7 @@ export default function Createpost() {
       URL.revokeObjectURL(output.src); // free memory
     };
   };
-  
+
   return (
     <div className="createPost">
       {/* //header */}
