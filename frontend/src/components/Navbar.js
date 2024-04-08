@@ -58,7 +58,7 @@ export default function Navbar({ login }) {
             <span className="material-symbols-outlined">add_box</span>
           </Link>
         </li>,
-        <li key="following" style={{ marginLeft: "20px" }}>
+        <li key="following">
           <Link to="/followingpost">
             <span className="material-symbols-outlined">explore</span>
           </Link>
