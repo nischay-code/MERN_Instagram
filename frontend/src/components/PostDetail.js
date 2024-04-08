@@ -76,7 +76,7 @@ export default function PostDetail({ item, toggleDetails }) {
           {/* card content */}
           <div className="card-content">
             <p>{item.likes.length} Likes</p>
-            <p>{item.body}</p>
+            <p className="cardBody">{item.body}</p>
           </div>
 
           {/* add Comment */}
